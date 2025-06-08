@@ -1,0 +1,291 @@
+<!-- Main Dashboard HTML -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracklt</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <h1><i class="fa-solid fa-wallet"></i> Tracklt</h1>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><button id="showAllTransactions">Show History</button></li>
+                <li><button id="showTransactionForm">Add Transaction</button></li>
+                <li><button id="showGetTransactionsForm">Get Transactions</button></li>
+                <li><button id="showSetBudgetForm">Set Budget</button></li>
+                <li><button id="showStats">Monthly Summary</button></li>
+                <li><button id="aboutButton">About</button></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <button id="logoutButton">Logout</button>
+
+        <!-- Main content section with two halves: forms and transaction list -->
+        <div class="main-content">
+
+            <!-- Left Half: Add Transaction and Filter Forms -->
+            <div class="left-column" id="left-column">
+                <h3 id="User_detail_heading">User: </h3>
+                <!-- <button id="showTransactionForm">Add Transaction</button>
+                <button id="showGetTransactionsForm">Get Transactions</button>
+                <button id="showSetBudgetForm">Set Budget</button> -->
+
+                <!-- Hidden Add Transaction Form -->
+                <div id="transactionForm" class="form-container hidden">
+                    <h2>Add Transaction</h2>
+                    <form id="addTransactionForm">
+                        <label for="date"><i class="fa-regular fa-calendar"></i> Select a date:</label>
+                        <input type="date" id="date" name="date" required>
+                        <label for="amount"><i class="fa-solid fa-money-bill"></i> Transaction Amount</label>
+                        <input type="number" id="amount" name="amount" step="any" placeholder="Enter Amount" required>
+                        <label for="category"><i class="fa-regular fa-rectangle-list"></i> Transaction Category</label>
+                        <select id="category" name="category" required>
+                            <option value="" disabled selected>Select a category</option>
+                            <option value="Food">Food</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Health">Health</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Income">Income</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+                        </select>
+                        <label for="transaction_type"><i class="fa-regular fa-rectangle-list"></i> Transaction
+                            Type</label>
+                        <select id="transaction_type" name="transaction_type" required>
+                            <option value="" disabled selected>Select the Transaction Type</option>
+                            <option value="Credit">Credit</option>
+                            <option value="Debit">Debit</option>
+                        </select>
+                        <label for="description"><i class="fa-regular fa-comment"></i> Short Description</label>
+                        <input type="text" id="description" name="description" placeholder="Description" required>
+                        <button type="submit">Add Transaction</button>
+                    </form>
+                </div>
+
+                <!-- Hidden Get Transactions Form -->
+                <div id="getTransactionsForm" class="form-container hidden">
+                    <h2>Get Filtered Transactions</h2>
+                    <form id="filterTransactions">
+                        <h3>Get Category-Wise Transactions</h3>
+                        <label for="category"><i class="fa-regular fa-rectangle-list"></i> Transaction Category</label>
+                        <select id="categoryinput" name="category">
+                            <option value="" disabled selected>Select a category</option>
+                            <option value="">None</option>
+                            <option value="Food">Food</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Health">Health</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Income">Income</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+                        </select>
+
+                        <h3>Filter Credit/Debit Transactions</h3>
+                        <label for="transaction_type"><i class="fa-regular fa-rectangle-list"></i> Transaction
+                            Type</label>
+                        <select id="typeinput" name="transaction_type">
+                            <option value="" disabled selected>Select the type</option>
+                            <option value="">Both</option>
+                            <option value="Credit">Credit</option>
+                            <option value="Debit">Debit</option>
+                        </select>
+
+                        <h3>Get Date Range Transactions</h3>
+                        <label for="date"><i class="fa-regular fa-calendar"></i> Select Starting Date:</label>
+                        <input type="date" id="fromDate" name="fromDate">
+                        <label for="date"><i class="fa-regular fa-calendar"></i> Select Ending Date:</label>
+                        <input type="date" id="toDate" name="toDate">
+
+                        <button type="submit">Get Transactions</button>
+                    </form>
+                </div>
+                <!-- Hidden Set Budget Form -->
+                <div id="budgetForm" class="form-container hidden">
+                    <h2>Set Budget</h2>
+                    <form id="setBudgetForm">
+                        <label for="budgetCategory"><i class="fa-regular fa-rectangle-list"></i> Budget
+                            Category</label>
+                        <select id="budgetCategory" name="category" required>
+                            <option value="" disabled selected>Select a category</option>
+                            <option value="Food">Food</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Health">Health</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Income">Income</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+                        </select>
+                        <label for="budgetAmount"><i class="fa-solid fa-money-bill"></i> Budget Amount</label>
+                        <input type="number" id="budgetAmount" name="amount" step="any" placeholder="Amount" required>
+                        <button type="submit">Set Budget</button>
+                    </form>
+                </div>
+                <figcaption id="piechartlabel">Your Total Debit</figcaption>
+                <canvas id="categorySpendChart" width="500" height="500"></canvas>
+                <canvas id="averageBarGraph" width="400" height="200"></canvas>
+            </div>
+
+            <!-- Right Half: Transaction List -->
+            <div class="right-column" id="right-column">
+                <div id="transactionList">
+                    <h2>Transactions</h2>
+                    <ul id="transactions"></ul>
+                </div>
+                <div id="MainPagePaginationControls" class="hidden">
+                    <div id="paginationControls" class="pagination-controls hidden">
+                        <button id="MainFirstPage" title="First Page" onclick="changePage(-1e9)"><i
+                                class="fa-solid fa-angles-left"></i></button>
+                        <button id="MainPrevPage" title="Prev Page" onclick="changePage(-1)"><i
+                                class="fa-solid fa-angle-left"></i></button>
+                        <span id="MainPageInfo">Page 1</span>
+                        <button id="MainNextPage" title="Next Page" onclick="changePage(1)"><i
+                                class="fa-solid fa-angle-right"></i></button>
+                        <button id="MainLastPage" title="Last Page" onclick="changePage(1e9)"><i
+                                class="fa-solid fa-angles-right"></i></button>
+                    </div>
+                </div>
+                <button id="ShowFullList">
+                    <p><i class="fa-regular fa-eye"></i> Show More
+                </button>
+                <div id="recommendationList" class="hidden">
+                    <ul id="recommendations"></ul>
+                </div>
+                <button id="ShowRecommendations" class="hidden"><i class="fa-regular fa-eye-slash"></i> Hide
+                    Warnings</button>
+            </div>
+
+            <div class="AllTransactions hidden" id="all-transactions" style="padding: 15px;">
+                <div id="AlltransactionList">
+                    <div id="TPP">
+                        <label for="transactionPerPage">Transactions per page</label>
+                        <select id="transactionPerPage" name="transactionPerPage">
+                            <option value="8">8</option>
+                            <option value="16" selected="selected">16</option>
+                            <option value="24">24</option>
+                            <option value="32">32</option>
+                        </select>
+                    </div>
+                    <h2 style="text-align: center;">Transactions</h2>
+                    <ul id="alltransactions"></ul>
+                </div>
+                <div id="paginationControls" class="pagination-controls">
+                    <button id="FirstPage" title="First Page" onclick="changePage(-1e9)"><i
+                            class="fa-solid fa-angles-left"></i></button>
+                    <button id="prevPage" title="Prev Page" onclick="changePage(-1)"><i
+                            class="fa-solid fa-angle-left"></i></button>
+                    <span id="pageInfo">Page 1</span>
+                    <button id="nextPage" title="Next Page" onclick="changePage(1)"><i
+                            class="fa-solid fa-angle-right"></i></button>
+                    <button id="LastPage" title="Last Page" onclick="changePage(1e9)"><i
+                            class="fa-solid fa-angles-right"></i></button>
+                </div>
+            </div>
+            <div class="About hidden" id="page-about" style="padding: 15px;">
+                <h1 style="text-align: left; color: aliceblue; margin-top: -1.5px;">About Our Expense Tracker</h1><br>
+                <p style="text-align: left; color: aliceblue;">
+                    Welcome to Tracklt:AI-Powered Enpense Manager, your reliable companion for managing and tracking your personal finances
+                    efficiently.
+                    Our platform empowers users to take control of their spending habits, allowing for better financial
+                    planning and organization
+                    through an easy-to-use interface. <br><br>
+
+                <h2 style="text-align: left; color: aliceblue; margin-top: -1.5px;">Why Tracklt?</h2><br>
+                In today's fast-paced world, keeping track of daily expenses can be challenging.
+                Whether you're managing a household budget or tracking personal finances,
+                Tracklt simplifies the process by offering a user-friendly way to log, categorize,
+                and analyze your financial transactions.<br><br>
+
+                <h2 style="text-align: left; color: aliceblue;">Key Features:</h2><br>
+                <span style="font-weight: bold;"><u>User Registration and Secure Login:</u></span> Create an account to
+                safely store your transactions and track your expenses over time.
+                Add, View, and Manage Transactions: Easily add new transactions, including the date, amount, category,
+                and description. View your transaction history in one place.<br>
+                <br><span style="font-weight: bold;"><u>Categorized Transactions:</u></span> Organize expenses into
+                categories like food, travel, utilities, and more for better insight into where your money is going.<br>
+                <br><span style="font-weight: bold;"><u>Date Range and Category Filtering:</u></span> Find transactions
+                based on custom date ranges or specific categories.<br>
+                <br><span style="font-weight: bold;"><u>View Transaction Summaries:</u></span> Get summaries of the last
+                few transactions or based on specific categories, making it easier to monitor spending trends.<br>
+                <br><br>
+                <h2 style="text-align: left; color: aliceblue; margin-bottom: -1.5px;">Technology Stack:</h2><br>
+                <br><span style="font-weight: bold;"><u>Frontend:</u></span> The intuitive and dynamic user interface is
+                built using modern web technologies like HTML, CSS, and JavaScript, delivering a seamless experience
+                across devices.<br>
+                <br><span style="font-weight: bold;"><u>Backend:</u></span> Our backend system is powered by C++,
+                offering optimized performance for managing user authentication and transaction data. It's connected to
+                the frontend using Express.js, a fast and flexible web framework for handling API requests and JWT for authenticated login.<br>
+                <br><span style="font-weight: bold;"><u>Database:</u></span> User and transaction data is securely
+                stored and managed using file-based storage in the backend, with plans to integrate more scalable
+                solutions in future updates.<br>
+                <br><span style="font-weight: bold;"><u>Authentication:</u></span> We ensure user security with a login
+                system that protects your credentials and data by using a Json Web Token in the cookies used for authorization, offering a smooth and secure experience.<br>
+                <br><br>
+                At Tracklt, we believe in simplicity and efficiency, helping you keep your finances organized without
+                the hassle. Whether you're saving for a big goal or just trying to stay on top of daily spending, our
+                platform is here to support you.
+
+                <br><br>Start managing your expenses with Tracklt today, and take the first step toward financial
+                freedom!
+                <br><br>
+                <a href="githublink" target="_blank"><i
+                        class="fa-brands fa-github fa-2x" style="color: black;"></i></a>
+                </p>
+            </div>
+            <div class="statBoard hidden" id="user-stats" style="padding: 15px;">
+                <div id="user-stats-subdiv">
+                    <div id="left-side-stat-page" style="margin-right: 5%;">
+                        <h2 style="margin-left: 50px;">Get Debit Statistics</h2>
+                        <form id="statdateRangeForm" style="margin-left: 50px;">
+                            <label for="monthinput"><i class="fa-regular fa-calendar"></i> Select Month:</label>
+                            <select id="monthinput" name="month" required>
+                                <option value="" disabled selected>Select a month</option>
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <button type="submit">Get Statistics</button>
+                        </form>
+                    </div>
+                    <div id="right-side-stat-page">
+                        <ul id="stat-list" style="padding-top: 18%;">
+                        </ul>
+                    </div>
+                    <div id="statBarGraph-div">
+                        <canvas id="statBarGraph" width="500" height="500"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/utils.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

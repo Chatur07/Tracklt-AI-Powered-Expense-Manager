@@ -1,0 +1,511 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    /* background-color: #0e1c1f; */
+    /* Deep emerald */
+    /* color: #3a3a3a; */
+    color: aliceblue;
+    background: url("images/bgimage.jpg") #0e1c1f no-repeat center center fixed;
+    /* background-position: center; */
+    background-size: cover;
+}
+
+a {
+    color: #877bb1;
+}
+
+p {
+    color: #c7cbc7;
+    font-size: 18px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+h1,
+h2,
+h3 {
+    color: aliceblue;
+    text-align: center;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+
+/* Flexbox for splitting the page into two halves */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.6px);
+    -webkit-backdrop-filter: blur(0.6px);
+    border: 1px solid rgba(255, 255, 255, 0.44);
+}
+
+/* Left and Right Columns */
+.left-column,
+.right-column {
+    width: 48%;
+    /* Half of the width for each side */
+}
+
+/* Initially hide forms */
+.hidden {
+    display: none;
+}
+
+/* Form styles */
+form {
+    /* background: #fff; */
+    padding: 20px;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.6px);
+    -webkit-backdrop-filter: blur(0.6px);
+    border: 1px solid rgba(255, 255, 255, 0.44);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.6px);
+    -webkit-backdrop-filter: blur(0.6px);
+    border: 1px solid rgba(255, 255, 255, 0.44);
+    color: aliceblue;
+    height: 50px;
+}
+
+#login_input {
+    color: white;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    transition: background-color 0.3s ease;
+    background: #555;
+}
+
+/* Transaction List */
+#transactionList {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.left-column,
+.right-column {
+    flex: 1;
+    padding: 20px;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#categorySpendChart {
+    margin-top: 80px;
+    max-width: 100%;
+}
+
+#transactionForm,
+#filterForm,
+#setBudgetForm {
+    margin-bottom: 20px;
+
+}
+
+input,
+select,
+button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#transactionList {
+    margin-top: 20px;
+}
+
+#transactions {
+    list-style-type: none;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#logoutButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 90px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logoutButton:hover {
+    background-color: #45a049;
+}
+
+#logincontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center content horizontally */
+    /* background: rgba(16, 16, 16, 0.6); */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; Center content horizontally */
+    min-width: 300px;
+    max-width: 500px;
+    padding: 20px;
+    width: 40%;
+    background-color: rgba(24, 28, 29, 0.7);
+    border: #c7bbbb solid 1px;
+    border-radius: 12px;
+}
+
+#registerForm {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; Center content horizontally */
+    min-width: 300px;
+    max-width: 500px;
+    padding: 20px;
+    width: 40%;
+    background-color: rgba(24, 28, 29, 0.7);
+    border: #c7bbbb solid 1px;
+    border-radius: 12px;
+}
+
+#loginForm input,
+#loginForm button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #252e30;
+}
+
+#registerForm input,
+#registerForm button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #252e30;
+}
+
+#registerroute {
+    color: aliceblue;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#registerroute a {
+    color: #4CAF50;
+}
+
+#loginheader {
+    margin-bottom: -5px;
+    margin-left: 4px;
+}
+
+#recommendations {
+    color: red;
+}
+
+#transactions {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    background: rgb(36, 39, 39, 0.8);
+    color: aliceblue;
+    padding: 10px;
+    margin: 5px;
+    flex: 1 1 45%;
+    /* Each item takes up approximately 45% of the row */
+    box-sizing: border-box;
+    border: 2px solid rgb(94, 84, 65);
+}
+
+@media (max-width: 600px) {
+    #transactions li {
+        flex: 1 1 100%;
+        /* Stack items on smaller screens */
+    }
+}
+
+#recommendations li {
+    background: rgb(36, 39, 39);
+    color: rgb(254, 5, 5);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1.8%;
+    padding-right: 2.5%;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.6px);
+    -webkit-backdrop-filter: blur(0.6px);
+    border: 1px solid rgba(255, 255, 255, 0.44);
+    margin-bottom: -2%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list button {
+    background: transparent;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s;
+    white-space: nowrap;    
+    font-weight: bold;
+    font-size: large;
+}
+
+.nav-list button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.nav-list li {
+    background: none;
+    border: none;
+}
+
+/* .nav-list li button {
+    white-space: nowrap;
+    background: none;
+    border: none;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: large;
+} */
+
+.rightNav {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10%;
+}
+
+h1 {
+    margin-top: 5%;
+    font-family: Garamond, serif;
+    font-size: 36px;
+}
+
+#User_detail_heading {
+    margin-left: -77%;
+    margin-top: -4%;
+    color: aliceblue;
+}
+
+label {
+    color: aliceblue;
+    margin-left: 1.8%;
+}
+
+button p {
+    color: aliceblue;
+    margin-top: -0.2px;
+    margin-bottom: -0.2px;
+}
+
+#piechartlabel {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: -30px;
+    margin-top: 5px;
+}
+
+.github-icon {
+    background-color: black;
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+}
+
+#alltransactions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#alltransactions li {
+    padding: 15px;
+    text-align: center;
+}
+
+#all-transactions{
+    margin-left: 10%;
+}
+
+#averageBarGraph{
+    margin-top: 5%;
+}
+
+#user-stats-subdiv {
+    display: flex;
+}
+
+#statBarGraph{
+    margin-left: 15%;
+}
+
+#statBarGraph-div{
+    width: 600px;
+    height: 500px;
+}
+
+#TPP{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#transactionPerPage{
+    width: 70px;
+}
+
+/* Pagination Controls Container */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    font-family: Arial, sans-serif;
+}
+
+/* Page Number Info */
+#pageInfo {
+    font-size: 1.2rem;
+    margin: 0 15px;
+    color: aliceblue;
+}
+
+/* Pagination Buttons */
+.pagination-controls button {
+    background: transparent;
+    width: 30px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hover Effect for Buttons */
+.pagination-controls button:hover {
+    background-color: #45a049;
+}
+
+/* Disabled Button Style */
+.pagination-controls button:disabled {
+    background: transparent;
+    cursor: not-allowed;
+}
+
+/* Responsive Design: Stack pagination controls on smaller screens */
+@media (max-width: 600px) {
+    .pagination-controls {
+        flex-direction: column;
+    }
+
+    .pagination-controls button {
+        width: 100px;
+        margin: 5px 0;
+    }
+
+    #pageInfo {
+        font-size: 1rem;
+    }
+}
