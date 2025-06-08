@@ -1,0 +1,4 @@
+2025-04-17 3200 Health Debit medicine
+2025-04-19 1500 Food Debit family dinner
+2025-04-19 500000 Income Credit salary
+2025-04-19 6000 Entertainment Debit movies
