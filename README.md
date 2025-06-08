@@ -7,12 +7,12 @@ A full-stack personal finance management application combining a **C++ backend**
 ## 📷 Screenshots
 
 <div align="center">
-  <img src="" width="400"/>
-  <img src="" width="400"/>
-  <img src="" width="400"/>
-  <img src="" width="400"/>
-  <img src="" width="400"/>
-  <img src="" width="400"/>
+  <img src="https://github.com/Chatur07/Tracklt-Intelligent-Personal-Finance-Management/blob/main/project_ss/ss1.jpg" width="400"/>
+  <img src="https://github.com/Chatur07/Tracklt-Intelligent-Personal-Finance-Management/blob/main/project_ss/ss2.png" width="400"/>
+  <img src="https://github.com/Chatur07/Tracklt-Intelligent-Personal-Finance-Management/blob/main/project_ss/ss3.jpg" width="400"/>
+  <img src="https://github.com/Chatur07/Tracklt-Intelligent-Personal-Finance-Management/blob/main/project_ss/ss4.jpg" width="400"/>
+  <img src="https://github.com/Chatur07/Tracklt-Intelligent-Personal-Finance-Management/blob/main/project_ss/ss5.jpg" width="400"/>
+  <img src="https://github.com/Chatur07/Tracklt-Intelligent-Personal-Finance-Management/blob/main/project_ss/ss6.jpg" width="400"/>
 </div>
 
 ---
