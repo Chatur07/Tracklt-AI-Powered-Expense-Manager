@@ -1,5 +1,4 @@
-# 📊 Tracklt – Intelligent Personal Finance Management
-
+# 📊 Tracklt – AI-Powered Expense Manager
 A full-stack personal finance management application combining a **C++ backend** with a **Node.js/Express web interface**, enriched by a **Python-based anomaly detection model**. Track expenses, manage budgets, receive personalized recommendations, and get alerts for unusual transactions.
 
 ---
