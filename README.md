@@ -239,3 +239,11 @@ GET  /api/getrecommendation     # View suggestions
 4. Push (`git push origin feature-name`)
 5. Open a pull request
 
+---
+## 🙌 Show Your Support
+
+If you like this project:
+
+* ⭐ **Star the repository**
+* 🤝 **Follow on [GitHub](https://github.com/Chatur07)** and [LinkedIn](www.linkedin.com/in/vikhyat-chaturvedi-678308252)
+* 💬 Share feedback or contribute!
